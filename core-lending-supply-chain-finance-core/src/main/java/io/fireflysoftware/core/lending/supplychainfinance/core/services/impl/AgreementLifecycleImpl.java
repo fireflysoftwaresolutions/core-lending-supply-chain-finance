@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * Allowed moves for a supply-chain finance agreement. A draft is the only status that can be removed.
  */
-final class AgreementLifecycle {
+final class AgreementLifecycleImpl {
 
     private static final Map<AgreementStatusEnum, Set<AgreementStatusEnum>> ALLOWED = Map.of(
             AgreementStatusEnum.DRAFT, EnumSet.of(
@@ -39,7 +39,7 @@ final class AgreementLifecycle {
                     AgreementStatusEnum.ACTIVE, AgreementStatusEnum.CLOSED, AgreementStatusEnum.TERMINATED)
     );
 
-    private AgreementLifecycle() {
+    private AgreementLifecycleImpl() {
     }
 
     static boolean canTransition(AgreementStatusEnum from, AgreementStatusEnum to) {

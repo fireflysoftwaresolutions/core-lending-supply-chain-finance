@@ -87,7 +87,7 @@ public class SupplyChainFinanceAgreementServiceImpl implements SupplyChainFinanc
                     if (updatedEntity.getStatus() == null) {
                         updatedEntity.setStatus(current);
                     }
-                    if (!AgreementLifecycle.canTransition(current, updatedEntity.getStatus())) {
+                    if (!AgreementLifecycleImpl.canTransition(current, updatedEntity.getStatus())) {
                         return Mono.error(new IllegalStateException(
                                 "Agreement " + id + " cannot move from " + current + " to " + updatedEntity.getStatus()));
                     }
